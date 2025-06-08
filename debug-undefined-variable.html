@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Debugging JavaScript: Undefined Variable</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .code-block {
+      background: #f4f4f4;
+      padding: 10px;
+      border-left: 4px solid #c00;
+      margin-bottom: 20px;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+    .step {
+      margin-bottom: 10px;
+    }
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Debugging JavaScript: Undefined Variable Error</h1>
+
+  <p>Open your browser console (F12 or Right-click → Inspect → Console tab) to see the error.</p>
+
+  <div class="code-block">
+// This code causes an error
+console.log(myVar); // myVar is not defined
+  </div>
+
+  <script>
+    // Error intentionally triggered
+    console.log(myVar);
+  </script>
+
+  <h2>How to Debug This:</h2>
+
+  <div class="step">
+    <strong>Step 1:</strong> Open the browser console to view the error message.
+    <br><span class="highlight">ReferenceError: myVar is not defined</span>
+  </div>
+
+  <div class="step">
+    <strong>Step 2:</strong> Find the line number in the error trace. Click it to go to the source.
+  </div>
+
+  <div class="step">
+    <strong>Step 3:</strong> Look at where <code>myVar</code> is used. Was it declared before?
+  </div>
+
+  <div class="step">
+    <strong>Step 4:</strong> Fix the error by declaring the variable:
+    <div class="code-block">let myVar = 'Hello';<br>console.log(myVar);</div>
+  </div>
+
+  <div class="step">
+    <strong>Step 5:</strong> Save and refresh the page. The error should be gone!
+  </div>
+
+</body>
+</html>
