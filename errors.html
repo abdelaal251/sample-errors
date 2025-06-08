@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Error Demo (Timed)</title>
+</head>
+<body>
+  <h1>Watch the Console: Errors Appear Over 3 Seconds</h1>
+  <p>This demo triggers common JavaScript errors over time.</p>
+
+  <script>
+    const errorFunctions = [
+      // 1. Null Reference Error
+      () => {
+        let obj = null;
+        console.log(obj.property);
+      },
+
+      // 2. Undefined Variable Error
+      () => {
+        console.log(notDeclaredVar);
+      },
+
+      // 3. Custom Not Found Error (simulating 404)
+      () => {
+        throw new Error("Resource not found (simulated 404)");
+      },
+
+      // 4. Type Error
+      () => {
+        let num = 5;
+        num.toUpperCase();
+      },
+
+      // 5. Syntax Error (via eval)
+      () => {
+        eval('let a == 5');
+      },
+
+      // 6. Range Error
+      () => {
+        let arr = new Array(-1);
+      },
+
+      // 7. URI Error
+      () => {
+        decodeURIComponent('%');
+      },
+
+      // 8. Reference Error from function call
+      () => {
+        missingFunction();
+      }
+    ];
+
+    errorFunctions.forEach((fn, index) => {
+      setTimeout(() => {
+        try {
+          fn();
+        } catch (e) {
+          console.error(`[Error ${index + 1}]`, e);
+        }
+      }, (index * 3000) / errorFunctions.length);
+    });
+  </script>
+</body>
+</html>
